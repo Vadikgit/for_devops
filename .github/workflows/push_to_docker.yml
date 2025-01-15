@@ -38,7 +38,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y curl
           curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
-          source "/root/.bashrc"
+          sudo source "/root/.bashrc"
           printf '${{ secrets.DOCKER_PASSWORD }}\n2\nn\n' | yc init
           yc vpc address list
 
