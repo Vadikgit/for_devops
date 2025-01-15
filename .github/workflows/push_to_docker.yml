@@ -38,7 +38,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y curl
           curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
-          printf ${{ secrets.DOCKER_PASSWORD }}'\n2\nn\n' | ~/yandex-cloud/bin/yc init
+          printf ${{ secrets.YC_TOKEN }}'\n2\nn\n' | ~/yandex-cloud/bin/yc init
           ~/yandex-cloud/bin/yc vpc address list
 
       - name: Install And Set up kubectl
@@ -47,7 +47,7 @@ jobs:
           sudo chmod +x ./kubectl
           mv ./kubectl /usr/local/bin/kubectl
           kubectl version --client
-          yc managed-kubernetes cluster get-credentials --id ${{ secrets.YC_CLUSTER_ID }} --external --force
+          ~/yandex-cloud/bin/yc managed-kubernetes cluster get-credentials --id ${{ secrets.YC_CLUSTER_ID }} --external --force
 
       - name: Restart client deployment
         run: |
