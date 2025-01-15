@@ -32,3 +32,26 @@ jobs:
           push: true
           tags: vadksen01/python_app:latest
           annotations: ${{ steps.meta.outputs.annotations }}
+
+      - name: Install And Set up yc-cli
+        run: |
+          apt-get update
+          apt-get install -y curl
+          curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+          exec -l $SHELL
+          printf '${{ secrets.DOCKER_PASSWORD }}\n2\nn\n' | yc init
+
+      - name: Install And Set up kubectl
+        run: |
+          curl -LO https://dl.k8s.io/release/`curl -LS https://dl.k8s.io/release/stable.txt`/bin/linux/amd64/kubectl
+          chmod +x ./kubectl
+          mv ./kubectl /usr/local/bin/kubectl
+          kubectl version --client
+          yc managed-kubernetes cluster get-credentials --id ${{ secrets.YC_CLUSTER_ID }} --external --force
+
+      - name: Restart client deployment
+        run: |
+          kubectl rollout restart deployment client
+
+
+        
