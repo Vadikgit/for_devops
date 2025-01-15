@@ -38,8 +38,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y curl
           curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
-          printf '${{ secrets.DOCKER_PASSWORD }}\n2\nn\n' | yc init
-          yc vpc address list
+          printf '${{ secrets.DOCKER_PASSWORD }}\n2\nn\n' | ~/yandex-cloud/bin/yc init
+          ~/yandex-cloud/bin/yc vpc address list
 
       - name: Install And Set up kubectl
         run: |
