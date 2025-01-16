@@ -3,7 +3,7 @@ name: refresh_server
 on:
   push:
     branches:
-      - our_app
+      - master
     paths:
       - server/**
 
