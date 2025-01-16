@@ -106,7 +106,7 @@ def search_friends():
     
 
     return jsonify({
-        'message': 'Данные успешно получены!',
+        'message': 'Данные успешно получены!!!',
         'data': results
     }), 200
 
@@ -174,7 +174,7 @@ def search_friends_user(userId):
     friends = friends[offset:offset+limit]
 
     return jsonify({
-        'message': 'Данные успешно получены!',
+        'message': 'Данные успешно получены!!!',
         'data': friends
     }), 200
 
