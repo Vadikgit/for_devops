@@ -3,7 +3,7 @@ name: Build and Push Server Docker Image, restart Server Kubernetes Deployment
 on:
   push:
     branches:
-      - master
+      - our_app
 
 jobs:
   build:
