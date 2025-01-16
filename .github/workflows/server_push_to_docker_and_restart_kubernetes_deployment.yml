@@ -5,7 +5,7 @@ on:
     branches:
       - our_app
     paths:
-      - server/**
+      - 'server/**'
 
 jobs:
   build:
