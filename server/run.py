@@ -14,5 +14,5 @@ app, db = create_app()
 CORS(app, resources={r'/*': {'origins': '*'}})
 
 if __name__ == '__main__':
-    print(111111111)
+    print(11111111)
     app.run(host='0.0.0.0', debug=True)
