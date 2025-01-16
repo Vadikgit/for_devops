@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - our_app
-    paths:
-      - serv**
 
 jobs:
   build:
