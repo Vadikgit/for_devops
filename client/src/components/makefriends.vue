@@ -15,7 +15,7 @@
           type="button"
           class="btn btn-success btn-sm"
           @click="toggleUpdateUserModal">
-          Add User
+          Update User
         </button>
         <br><br>
         <p>
